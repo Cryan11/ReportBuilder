@@ -2,6 +2,13 @@
 using System.Data;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using static ReportBuilder.QueryBuilder;
+using static ReportBuilder.SavedReports;
+using static ReportBuilder.NewCustomers;
+using static ReportBuilder.DriveInModifier;
+using static ReportBuilder.ArchiveCustomers;
+using static ReportBuilder.Settings;
+
 
 namespace ReportBuilder
 {
@@ -12,72 +19,78 @@ namespace ReportBuilder
         public HomePage()
         {
             InitializeComponent();
+            gbDriveInModifier.Hide();
+            gbQueryBuilder.Hide();
+            gbNewCustomers.Hide();
+           lblPage.Text = "Welcome";
         }
+
+        #region Unavailable functions
 
         private void buttonQueryBuilder_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("This Function is not yet available. Please check back soon!");
             lblPage.Text = "Query Builder";
+            // gbQueryBuilder.Show();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            var CS = new Connstr();
-            CS.Open("auctiondb");
-
-            if (cbParams.Text == "ALL")
-                if (cbHistory.Text == "No")
-                {
-                    mycommand = $"Select * from auctiondb.{cbTable.Text};";
-                    var sqlDataAdapter = new MySqlDataAdapter(mycommand, CS.DB);
-                    var Reports = new DataTable();
-                    sqlDataAdapter.Fill(Reports);
-                    dgReport.DataSource = Reports;
-                }
+            button1click();
         }
-
-        private void buttonSavedReports_Click(object sender, EventArgs e)
-        {
-            lblPage.Text = "Saved Reports";
-        }
-
-        private void buttonImport_Click(object sender, EventArgs e)
-        {
-            lblPage.Text = "Import";
-        }
-
-        private void buttonSettings_Click(object sender, EventArgs e)
-        {
-            lblPage.Text = "Settings";
-        }
-
         private void cbParams_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbParams.Text == "SPECIFIC")
-            {
-                lblColumns.Visible = true;
-                checkedlistbox.Visible = true;
+            CreateParams();
+        }
+        private void btnSavedReports_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This Function is not yet available. Please check back soon!");
 
-                if (cbHistory.Text == "No")
-                {
-                    mycommand =
-                        $"Select column_name from information_schema.columns where table_name = N'{cbTable.Text}';";
-                    var CS = new Connstr();
-                    CS.Open("auctiondb");
-                    var cmd = new MySqlCommand(mycommand, CS.DB);
-                    MySqlDataReader dr;
-                    dr = cmd.ExecuteReader();
-                    if (dr.HasRows)
-                        while (dr.Read())
-                            checkedlistbox.Items.Add(dr[0].ToString());
-                    dr.Close();
-                }
-            }
-            else if (cbParams.Text == "ALL") 
-            {
-                    lblColumns.Visible = false;
-                    checkedlistbox.Visible = false;
-            }
-            
+            lblPage.Text = "Saved Reports";
+        }
+        private void buttonSettings_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This Function is not yet available. Please check back soon!");
+            lblPage.Text = "Settings";
+        }
+        private void btn_DriveInModifier_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This Function is not yet available. Please check back soon!");
+            lblPage.Text = "Drive In Modifier";
+            //gbDriveInModifier.Show();
+        }
+        private void btnRun_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btn_ArchiveCustomers_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This Function is not yet available. Please check back soon!");
+            lblPage.Text = "Archive Customers";
+        }
+
+        #endregion
+
+        #region Available Functions
+
+        private void btnNewCustomers_Click(object sender, EventArgs e)
+        {
+            gbNewCustomers.Show();
+            lblPage.Text = "New Customer Import";
+
+        }
+
+        private void btnGetCustomers_Click(object sender, EventArgs e)
+        {
+            getCustomers();
+        }
+
+
+
+        #endregion
+
+        private void btnExportCustomerList_Click(object sender, EventArgs e)
+        {
+            Export();
         }
     }
 }
