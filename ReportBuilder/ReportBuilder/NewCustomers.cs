@@ -19,9 +19,6 @@ namespace ReportBuilder
                 dtpBeginDate = {Format = DateTimePickerFormat.Custom, CustomFormat = @"yyyy-MM-dd"},
                 dtpEndDate = {Format = DateTimePickerFormat.Custom, CustomFormat = @"yyyy-MM-dd"}
             };
-
-
-
             var cs = new Connstr();
             cs.Open("auctiondb");
             MySqlCommand cmd = new MySqlCommand("SELECT " + "Lname AS 'Last Name', " + "Fname AS 'First Name', " +
@@ -35,8 +32,12 @@ namespace ReportBuilder
                                                 "order by Lname, fname, addr1;"
             );
             MySqlDataAdapter sqlDA = new MySqlDataAdapter(cmd.CommandText, cs.DB);
-            var dgCustomers = new DataTable();
-            sqlDA.Fill(dgCustomers);
+            var cusTable = new DataTable();
+            sqlDA.Fill(cusTable);
+            hp.dgCustomers.DataSource = cusTable;
+
+
+
         }
 
         public static void Export()

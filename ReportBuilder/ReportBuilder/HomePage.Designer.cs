@@ -62,7 +62,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnGetCustomers = new System.Windows.Forms.Button();
-            this.dgcustomers = new System.Windows.Forms.DataGridView();
+            this.dgCustomers = new System.Windows.Forms.DataGridView();
             this.panel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.gbQueryBuilder.SuspendLayout();
@@ -70,7 +70,7 @@
             this.gbDriveInModifier.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.gbNewCustomers.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgcustomers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgCustomers)).BeginInit();
             this.SuspendLayout();
             // 
             // panel
@@ -409,7 +409,7 @@
             this.gbNewCustomers.Controls.Add(this.label5);
             this.gbNewCustomers.Controls.Add(this.label4);
             this.gbNewCustomers.Controls.Add(this.btnGetCustomers);
-            this.gbNewCustomers.Controls.Add(this.dgcustomers);
+            this.gbNewCustomers.Controls.Add(this.dgCustomers);
             this.gbNewCustomers.Location = new System.Drawing.Point(503, 89);
             this.gbNewCustomers.Name = "gbNewCustomers";
             this.gbNewCustomers.Size = new System.Drawing.Size(802, 701);
@@ -473,13 +473,13 @@
             this.btnGetCustomers.UseVisualStyleBackColor = true;
             this.btnGetCustomers.Click += new System.EventHandler(this.btnGetCustomers_Click);
             // 
-            // dgcustomers
+            // dgCustomers
             // 
-            this.dgcustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgcustomers.Location = new System.Drawing.Point(18, 118);
-            this.dgcustomers.Name = "dgcustomers";
-            this.dgcustomers.Size = new System.Drawing.Size(548, 355);
-            this.dgcustomers.TabIndex = 6;
+            this.dgCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgCustomers.Location = new System.Drawing.Point(18, 118);
+            this.dgCustomers.Name = "dgCustomers";
+            this.dgCustomers.Size = new System.Drawing.Size(548, 355);
+            this.dgCustomers.TabIndex = 6;
             // 
             // HomePage
             // 
@@ -507,7 +507,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.gbNewCustomers.ResumeLayout(false);
             this.gbNewCustomers.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgcustomers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgCustomers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -534,7 +534,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txt_driveinOld;
         private System.Windows.Forms.Button btnGetCustomers;
-        private System.Windows.Forms.DataGridView dgcustomers;
         public System.Windows.Forms.ComboBox cbParams;
         public System.Windows.Forms.ComboBox cbTable;
         public System.Windows.Forms.ComboBox cbHistory;
@@ -548,6 +547,7 @@
         public System.Windows.Forms.DateTimePicker dtpBeginDate;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        public System.Windows.Forms.DataGridView dgCustomers;
     }
 }
 
